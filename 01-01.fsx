@@ -3,7 +3,7 @@ open System
 open System.IO
 
 let input =
-    __SOURCE_FILE__[3..4]+ ".input"
+    __SOURCE_FILE__[..1]+ ".input"
     |> File.ReadAllLines
     
 let result =
