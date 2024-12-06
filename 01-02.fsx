@@ -1,4 +1,5 @@
 #load "utils.fsx"
+open Utils
 open System
 open System.IO
 
@@ -9,7 +10,7 @@ let input =
 
 let column1, column2Counted =
     input
-    |> Array.map (fun row -> row.Split "   " |> Array.map int)
+    |> Array.map (String.split "   " >> Array.map int)
     |> Array.transpose
     |> function x -> x[0], x[1] |> Array.countBy id |> Map.ofArray
 

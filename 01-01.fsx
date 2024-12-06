@@ -1,4 +1,5 @@
 #load "utils.fsx"
+open Utils
 open System
 open System.IO
 
@@ -8,7 +9,7 @@ let input =
     
 let result =
     input
-    |> Array.map (fun row -> row.Split "   " |> Array.map int)
+    |> Array.map (String.split "   " >> Array.map int)
     |> Array.transpose
     |> Array.map Array.sort
     |> function columns -> Array.map2 (fun x y -> x - y |> abs) columns[0] columns[1]
